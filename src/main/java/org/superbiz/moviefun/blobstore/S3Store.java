@@ -7,6 +7,8 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.amazonaws.util.IOUtils;
 import org.apache.tika.Tika;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class S3Store implements BlobStore {
     private final AmazonS3 s3;
     private final String bucketName;
     private final Tika tika = new Tika();
+
 
     public S3Store(AmazonS3 s3, String bucketName) {
         this.s3 = s3;
